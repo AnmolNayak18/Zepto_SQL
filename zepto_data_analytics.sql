@@ -27,6 +27,29 @@ ON zepto (category);
 CREATE INDEX idx_zepto_outofstock
 ON zepto (outOfStock);
 
+-- ============================================================
+-- IMPORT DATA FROM CSV
+-- ============================================================
+
+LOAD DATA INFILE 'C:\Users\nayak\Downloads\zepto.csv'
+INTO TABLE zepto
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(
+    category,
+    name,
+    mrp,
+    discountPercent,
+    availableQuantity,
+    discountedSellingPrice,
+    weightInGms,
+    outOfStock,
+    quantity
+);
+
+
 
 
 -- ============================================================
